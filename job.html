@@ -7,6 +7,16 @@
   <title>Job Details | shaqokaab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="styles.css" />
+  <style>
+    .application-dialog{width:min(560px,calc(100% - 28px));max-width:none;padding:0;border:0;border-radius:20px;box-shadow:0 24px 80px rgba(10,20,40,.28)}
+    .application-dialog::backdrop{background:rgba(10,20,40,.58);backdrop-filter:blur(3px)}
+    .application-dialog-card{position:relative;display:grid;gap:14px;padding:26px;background:#fff}
+    .application-dialog-card h2{margin:0;color:#0a1428;letter-spacing:-.03em}
+    .application-dialog-card .application-disclaimer,.application-feedback{margin:0;color:#5d6b82;font-size:.88rem}
+    .dialog-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border:1px solid #e4eaf5;border-radius:50%;background:#fff;font-size:1.35rem;cursor:pointer}
+    .application-dialog .form-submit{justify-self:start;cursor:pointer}
+    .application-dialog .form-submit:disabled{opacity:.7;cursor:default}
+  </style>
 </head>
 <body data-page="job-detail">
   <header class="site-header"><div class="container nav-wrap">
@@ -16,6 +26,6 @@
   </div></header>
   <main class="page-shell detail-shell"><div class="container detail-layout"><article id="jobDetail" class="detail-panel" aria-live="polite"></article></div></main>
   <footer class="site-footer"><div class="container footer-wrap"><div><a href="index.html" class="brand footer-brand"><span class="brand-mark">s</span><span class="brand-text">shaqokaab</span></a><p>Connecting talent to opportunity across Africa and beyond.</p></div><div class="footer-links"><a href="jobs.html">Jobs</a><a href="candidate.html">My dashboard</a><a href="employer.html">For employers</a></div></div></footer>
-  <script src="script.js"></script><script src="candidate.js"></script>
+  <script src="script.js"></script><script src="candidate.js"></script><script src="application.js"></script>
 </body>
 </html>

@@ -39,7 +39,7 @@
 
     const savedIds = readJSON(SAVED_KEY, []).map(String);
     const savedJobs = getJobs().filter((job) => savedIds.includes(String(job.id)));
-    const applications = readJSON(APPLICATIONS_KEY, []);
+    const applications = readJSON(APPLICATIONS_KEY, []).filter((item) => item && typeof item === "object");
     const savedContainer = document.getElementById("savedJobs");
     const applicationsContainer = document.getElementById("candidateApplications");
     const savedCount = document.getElementById("savedCount");
@@ -48,15 +48,14 @@
     savedCount.textContent = `${savedJobs.length} job${savedJobs.length === 1 ? "" : "s"}`;
     savedContainer.innerHTML = savedJobs.length ? savedJobs.map((job) => `<article class="candidate-item"><div><h3>${esc(job.title)}</h3><p>${esc(job.company)} · ${esc(job.location)} · ${esc(job.type)}</p></div><div class="candidate-item-actions"><a class="secondary-btn" href="job.html?id=${encodeURIComponent(job.id)}">View job</a><button type="button" class="candidate-remove" data-remove-saved="${esc(job.id)}">Remove</button></div></article>`).join("") : '<div class="candidate-empty">No saved jobs yet. Browse jobs and use “Save job” on a listing you like.</div>';
 
-    const validApplications = applications.filter((application) => application && typeof application === "object");
-    applicationCount.textContent = `${validApplications.length} application${validApplications.length === 1 ? "" : "s"}`;
-    applicationsContainer.innerHTML = validApplications.length ? validApplications.map((application) => {
+    applicationCount.textContent = `${applications.length} application${applications.length === 1 ? "" : "s"}`;
+    applicationsContainer.innerHTML = applications.length ? applications.map((application) => {
       const job = getJobs().find((item) => String(item.id) === String(application.jobId));
       const title = job?.title || application.title || "Job listing";
       const company = job?.company || application.company || "Employer";
       const when = application.appliedAt ? new Date(application.appliedAt).toLocaleDateString() : "Recently";
-      return `<article class="candidate-item"><div><h3>${esc(title)}</h3><p>${esc(company)} · Started ${esc(when)}</p></div><div class="candidate-item-actions"><span class="candidate-status">Email application started</span>${job ? `<a class="secondary-btn" href="job.html?id=${encodeURIComponent(job.id)}">View job</a>` : ""}</div></article>`;
-    }).join("") : '<div class="candidate-empty">Your application activity will appear here when you choose “Apply by email”.</div>';
+      return `<article class="candidate-item"><div><h3>${esc(title)}</h3><p>${esc(company)} · Saved ${esc(when)}</p></div><div class="candidate-item-actions"><span class="candidate-status">Demo only · not sent</span>${job ? `<a class="secondary-btn" href="job.html?id=${encodeURIComponent(job.id)}">View job</a>` : ""}</div></article>`;
+    }).join("") : '<div class="candidate-empty">Your demo application records will appear here. They are stored only in this browser and are not sent to employers.</div>';
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -85,7 +84,7 @@
       if (!job) return;
       const applications = readJSON(APPLICATIONS_KEY, []);
       if (!applications.some((application) => String(application.jobId) === String(job.id))) {
-        applications.unshift({ jobId: job.id, title: job.title, company: job.company, appliedAt: new Date().toISOString() });
+        applications.unshift({ jobId: job.id, title: job.title, company: job.company, appliedAt: new Date().toISOString(), status: "saved-locally" });
         writeJSON(APPLICATIONS_KEY, applications);
       }
     });
