@@ -1,704 +1,458 @@
- :root {
-  --bg: #f4f7fb;
-  --panel: #ffffff;
-  --panel-soft: #eef5ff;
-  --navy-900: #0a1428;
-  --navy-700: #1c2d48;
-  --navy-500: #4f6485;
-  --primary: #1558d6;
-  --primary-strong: #0d46b3;
-  --primary-soft: rgba(21, 88, 214, 0.12);
-  --accent: #f7b955;
-  --text: #11213d;
-  --muted: #5d6b82;
-  --line: #e4eaf5;
-  --success: #1bb884;
-  --shadow: 0 20px 45px rgba(15, 32, 62, 0.08);
-}
-
-* { box-sizing: border-box; }
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-button, input, select {
-  font: inherit;
-}
-
-.container {
-  width: min(1180px, calc(100% - 32px));
-  margin: 0 auto;
-}
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  background: rgba(244, 247, 251, 0.88);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(20, 32, 56, 0.06);
-}
-
-.nav-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 82px;
-  gap: 24px;
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--navy-900);
-}
-
-.brand-mark {
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-  color: white;
-  background: linear-gradient(135deg, var(--primary), #3a75ff);
-  box-shadow: 0 12px 24px rgba(21, 88, 214, 0.25);
-}
-
-.brand-text {
-  font-size: 1.2rem;
-}
-
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  color: var(--navy-700);
-  font-weight: 500;
-}
-
-.main-nav a {
-  opacity: 0.86;
-}
-
-.main-nav a:hover,
-.main-nav a:focus-visible {
-  opacity: 1;
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.link-btn,
-.primary-btn,
-.search-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.link-btn {
-  padding: 0.7rem 1rem;
-  color: var(--navy-700);
-  border: 1px solid rgba(17, 33, 61, 0.06);
-  background: rgba(255, 255, 255, 0.7);
-}
-
-.primary-btn,
-.search-btn {
-  border: none;
-  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
-  color: white;
-  box-shadow: 0 16px 24px rgba(21, 88, 214, 0.22);
-}
-
-.primary-btn {
-  padding: 0.8rem 1.2rem;
-}
-
-.search-btn {
-  min-height: 58px;
-  min-width: 160px;
-  padding: 0.85rem 1.4rem;
-  cursor: pointer;
-}
-
-.primary-btn:hover,
-.search-btn:hover,
-.link-btn:hover {
-  transform: translateY(-1px);
-}
-
-.hero {
-  padding: 72px 0 48px;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 0.8fr;
-  gap: 32px;
-  align-items: center;
-}
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.45rem 0.8rem;
-  border-radius: 999px;
-  background: rgba(21, 88, 214, 0.08);
-  color: var(--primary-strong);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  font-size: 0.72rem;
-}
-
-.eyebrow.accent {
-  background: rgba(247, 185, 85, 0.18);
-  color: #9d6b00;
-}
-
-.hero-copy h1 {
-  margin: 18px 0 16px;
-  font-size: clamp(2.7rem, 4vw, 4.4rem);
-  line-height: 1.05;
-  color: var(--navy-900);
-  letter-spacing: -0.06em;
-}
-
-.hero-copy p {
-  max-width: 720px;
-  color: var(--muted);
-  font-size: 1.08rem;
-}
-
-.search-panel {
-  display: grid;
-  grid-template-columns: 1.7fr 1fr 1fr auto;
-  gap: 14px;
-  margin-top: 28px;
-  padding: 16px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(17, 33, 61, 0.06);
-  box-shadow: var(--shadow);
-}
-
-.input-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 0.8rem;
-  color: var(--muted);
-}
-
-.input-wrap span {
-  padding-left: 4px;
-  font-weight: 600;
-}
-
-.input-wrap input,
-.input-wrap select {
-  width: 100%;
-  min-height: 58px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #fff;
-  padding: 0.85rem 1rem;
-  color: var(--text);
-}
-
-.input-wrap input:focus,
-.input-wrap select:focus {
-  outline: 2px solid rgba(21, 88, 214, 0.18);
-  border-color: rgba(21, 88, 214, 0.34);
-}
-
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(120px, 1fr));
-  gap: 18px;
-  margin-top: 30px;
-}
-
-.hero-stats div {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding: 14px 16px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(17, 33, 61, 0.06);
-}
-
-.hero-stats strong {
-  font-size: 1.8rem;
-  color: var(--navy-900);
-  letter-spacing: -0.04em;
-}
-
-.hero-stats span {
-  color: var(--muted);
-  font-size: 0.84rem;
-}
-
-.hero-panel {
-  display: flex;
-  justify-content: center;
-}
-
-.panel-card {
-  width: min(100%, 420px);
-  background: linear-gradient(180deg, #f7faff 0%, #ffffff 100%);
-  border: 1px solid rgba(17, 33, 61, 0.06);
-  border-radius: 28px;
-  box-shadow: var(--shadow);
-  padding: 24px;
-}
-
-.feature-card {
-  position: relative;
-  overflow: hidden;
-}
-
-.feature-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto auto 0;
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle, rgba(21, 88, 214, 0.12), transparent 70%);
-  transform: translate(-20%, -15%);
-}
-
-.mini-tag {
-  position: relative;
-  display: inline-flex;
-  padding: 0.4rem 0.7rem;
-  border-radius: 999px;
-  background: rgba(21, 88, 214, 0.08);
-  color: var(--primary-strong);
-  font-weight: 700;
-  font-size: 0.72rem;
-  margin-bottom: 18px;
-}
-
-.company-row {
-  position: relative;
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
-
-.company-badge {
-  width: 52px;
-  height: 52px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, var(--primary), #3a75ff);
-  color: white;
-  font-weight: 700;
-  display: grid;
-  place-items: center;
-  box-shadow: 0 12px 22px rgba(21, 88, 214, 0.18);
-}
-
-.company-row h3 {
-  margin: 0;
-  font-size: 1.35rem;
-}
-
-.company-row p {
-  margin: 6px 0 0;
-  color: var(--muted);
-}
-
-.feature-card ul {
-  position: relative;
-  padding-left: 18px;
-  margin: 20px 0 16px;
-  color: var(--navy-700);
-}
-
-.feature-card li + li {
-  margin-top: 10px;
-}
-
-.text-link {
-  position: relative;
-  color: var(--primary-strong);
-  font-weight: 700;
-}
-
-.categories,
-.jobs,
-.companies,
-.process {
-  padding: 28px 0 44px;
-}
-
-.section-heading {
-  margin-bottom: 28px;
-}
-
-.section-heading h2 {
-  margin: 14px 0 0;
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  letter-spacing: -0.05em;
-  color: var(--navy-900);
-}
-
-.narrow {
-  max-width: 620px;
-}
-
-.category-grid,
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.category-card,
-.process-card {
-  background: var(--panel);
-  border: 1px solid rgba(17, 33, 61, 0.06);
-  border-radius: 22px;
-  padding: 24px 20px;
-  box-shadow: 0 14px 30px rgba(17, 33, 61, 0.04);
-}
-
-.category-card .icon {
-  width: 52px;
-  height: 52px;
-  display: grid;
-  place-items: center;
-  border-radius: 16px;
-  background: var(--primary-soft);
-  font-size: 1.6rem;
-  margin-bottom: 16px;
-}
-
-.category-card h3,
-.process-card h3 {
-  margin: 0 0 8px;
-  font-size: 1.3rem;
-  color: var(--navy-900);
-}
-
-.category-card p,
-.process-card p,
-.site-footer p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.jobs-header {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 24px;
-}
-
-.jobs-header h2 {
-  margin: 12px 0 0;
-  color: var(--navy-900);
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  letter-spacing: -0.05em;
-}
-
-.chip-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.chip {
-  border: 1px solid rgba(17, 33, 61, 0.08);
-  background: #fff;
-  color: var(--navy-700);
-  border-radius: 999px;
-  padding: 0.7rem 1rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.chip.active {
-  background: var(--primary-soft);
-  border-color: rgba(21, 88, 214, 0.18);
-  color: var(--primary-strong);
-}
-
-.jobs-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.job-card {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  background: var(--panel);
-  border: 1px solid rgba(17, 33, 61, 0.06);
-  border-radius: 22px;
-  padding: 22px;
-  box-shadow: 0 14px 30px rgba(17, 33, 61, 0.04);
-}
-
-.job-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  gap: 16px;
-}
-
-.company-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 48px;
-  height: 48px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #dfeaff, #edf4ff);
-  color: var(--primary-strong);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-}
-
-.job-meta {
-  flex: 1;
-}
-
-.job-meta h3 {
-  margin: 0;
-  font-size: 1.3rem;
-  color: var(--navy-900);
-}
-
-.company-name {
-  display: block;
-  margin-top: 4px;
-  color: var(--muted);
-  font-weight: 600;
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.4rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  background: #ebf7f1;
-  color: var(--success);
-}
-
-.job-card p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.job-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.job-tags span {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.45rem 0.7rem;
-  border-radius: 999px;
-  background: #f3f6fb;
-  color: var(--navy-700);
-  font-size: 0.76rem;
-  font-weight: 600;
-}
-
-.job-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-top: auto;
-}
-
-.salary {
-  font-weight: 700;
-  color: var(--navy-900);
-}
-
-.apply-btn {
-  border: none;
-  background: rgba(21, 88, 214, 0.08);
-  color: var(--primary-strong);
-  padding: 0.72rem 1rem;
-  border-radius: 12px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.logo-strip {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 18px;
-  align-items: center;
-}
-
-.logo-strip span {
-  display: grid;
-  place-items: center;
-  min-height: 90px;
-  border-radius: 18px;
-  border: 1px solid rgba(17, 33, 61, 0.08);
-  background: rgba(255, 255, 255, 0.7);
-  color: var(--navy-700);
-  font-weight: 700;
-}
-
-.step-number {
-  display: inline-flex;
-  margin-bottom: 16px;
-  font-weight: 800;
-  font-size: 0.8rem;
-  color: var(--primary-strong);
-}
-
-.cta-section {
-  padding: 50px 0 80px;
-}
-
-.cta-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 30px 32px;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #0d1d38, #143a72);
-  color: white;
-  box-shadow: var(--shadow);
-}
-
-.cta-card h2 {
-  margin: 10px 0 0;
-  font-size: clamp(2rem, 3vw, 2.7rem);
-  letter-spacing: -0.05em;
-}
-
-.large {
-  padding: 1rem 1.5rem;
-  font-size: 1rem;
-}
-
-.site-footer {
-  border-top: 1px solid rgba(17, 33, 61, 0.06);
-  background: rgba(255, 255, 255, 0.72);
-  padding: 24px 0 38px;
-}
-
-.footer-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.footer-brand {
-  margin-bottom: 10px;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  color: var(--navy-700);
-  font-weight: 600;
-}
-
-@media (max-width: 980px) {
-  .hero-grid,
-  .category-grid,
-  .jobs-grid,
-  .process-grid,
-  .logo-strip {
-    grid-template-columns: 1fr 1fr;
+const jobs = [
+  {
+    id: 1,
+    title: "Senior Product Designer",
+    company: "Atlas Digital",
+    location: "Mogadishu",
+    type: "Full-time",
+    salary: "$1,200 - $1,800",
+    category: "Design",
+    description: "Design intuitive digital experiences for customers and internal teams.",
+    featured: true,
+    posted: "2 days ago",
+    summary: "We are looking for a Senior Product Designer to shape user experiences across web and mobile products.",
+    requirements: [
+      "5+ years of product design experience in digital products.",
+      "Strong UX research and system design skills.",
+      "Proficiency in Figma, prototyping, and design systems.",
+      "Ability to work closely with product and engineering teams."
+    ],
+    responsibilities: [
+      "Lead end-to-end design for key product features.",
+      "Translate user needs into elegant design decisions.",
+      "Create and maintain scalable design systems.",
+      "Partner with engineers, researchers, and product managers."
+    ]
+  },
+  {
+    id: 2,
+    title: "Frontend Engineer",
+    company: "NovaLabs",
+    location: "Remote",
+    type: "Remote",
+    salary: "$1,500 - $2,200",
+    category: "Technology",
+    description: "Build polished web interfaces and improve user experience performance.",
+    featured: true,
+    posted: "1 day ago",
+    summary: "Join our product engineering team to build clean, scalable, and accessible front-end experiences.",
+    requirements: [
+      "Strong JavaScript and TypeScript skills.",
+      "Experience with React, Next.js, and design systems.",
+      "Comfort with performance optimization and testing.",
+      "Excellent communication and collaboration habits."
+    ],
+    responsibilities: [
+      "Deliver responsive user interfaces for customer-facing products.",
+      "Work closely with designers to implement polished experiences.",
+      "Improve product performance and accessibility.",
+      "Mentor junior engineers and contribute to code quality."
+    ]
+  },
+  {
+    id: 3,
+    title: "Operations Manager",
+    company: "CityLoop",
+    location: "Hargeisa",
+    type: "Full-time",
+    salary: "$1,000 - $1,500",
+    category: "Operations",
+    description: "Lead day-to-day logistics, service quality, and stakeholder coordination.",
+    featured: false,
+    posted: "4 days ago",
+    summary: "CityLoop is looking for an operations leader to improve delivery, service quality, and internal process efficiency.",
+    requirements: [
+      "3+ years experience in operations or business administration.",
+      "Strong planning and stakeholder management skills.",
+      "Experience working in fast-moving service environments.",
+      "Ability to manage KPIs and process improvements."
+    ],
+    responsibilities: [
+      "Own day-to-day operational execution across teams.",
+      "Improve service quality and optimize workflows.",
+      "Coordinate cross-functional priorities and reporting.",
+      "Support growth planning and operational planning."
+    ]
+  },
+  {
+    id: 4,
+    title: "Business Development Executive",
+    company: "SomNet",
+    location: "Nairobi",
+    type: "Contract",
+    salary: "$900 - $1,300",
+    category: "Business",
+    description: "Drive partnerships, revenue growth, and new client acquisition.",
+    featured: true,
+    posted: "3 days ago",
+    summary: "We are hiring a business development specialist to help expand strategic partnerships and revenue opportunities.",
+    requirements: [
+      "Experience in sales, partnerships, or business development.",
+      "Strong prospecting and negotiation capabilities.",
+      "Comfortable with outbound outreach and presentations.",
+      "Track record of meeting or exceeding revenue goals."
+    ],
+    responsibilities: [
+      "Identify and pursue partnership and sales opportunities.",
+      "Manage lead generation and pipeline development.",
+      "Present solutions to potential customers and partners.",
+      "Collaborate with leadership on market expansion efforts."
+    ]
+  },
+  {
+    id: 5,
+    title: "Data Analyst",
+    company: "GreenBox",
+    location: "Remote",
+    type: "Full-time",
+    salary: "$1,100 - $1,600",
+    category: "Technology",
+    description: "Turn complex customer and operational data into actionable insights.",
+    featured: false,
+    posted: "6 days ago",
+    summary: "As a Data Analyst, you will work across product, finance, and operations to uncover insights and improve decision-making.",
+    requirements: [
+      "Experience with SQL and spreadsheet analysis.",
+      "Comfort with data visualization and dashboarding.",
+      "Strong analytical and storytelling skills.",
+      "Ability to translate metrics into business action."
+    ],
+    responsibilities: [
+      "Create dashboards and recurring performance reports.",
+      "Analyze customer and operational trends.",
+      "Collaborate with cross-functional stakeholders.",
+      "Recommend improvements based on KPI analysis."
+    ]
+  },
+  {
+    id: 6,
+    title: "Marketing Strategist",
+    company: "HarborOne",
+    location: "Mogadishu",
+    type: "Full-time",
+    salary: "$950 - $1,400",
+    category: "Marketing",
+    description: "Craft growth campaigns across digital channels and local outreach.",
+    featured: false,
+    posted: "1 week ago",
+    summary: "HarborOne is hiring a strategic marketer to lead campaigns and brand growth in key local markets.",
+    requirements: [
+      "Experience in digital marketing or brand strategy.",
+      "Strong knowledge of campaign planning and analytics.",
+      "Excellent writing and content strategy capabilities.",
+      "Ability to work across social, search, and CRM campaigns."
+    ],
+    responsibilities: [
+      "Manage growth marketing campaigns across channels.",
+      "Create messaging for product, brand, and acquisition.",
+      "Analyze campaign performance and optimize spend.",
+      "Coordinate local market and digital marketing initiatives."
+    ]
+  },
+  {
+    id: 7,
+    title: "Customer Success Lead",
+    company: "HorizonPay",
+    location: "Remote",
+    type: "Full-time",
+    salary: "$1,050 - $1,550",
+    category: "Customer Success",
+    description: "Guide clients through onboarding, adoption, and retention workstreams.",
+    featured: true,
+    posted: "5 days ago",
+    summary: "We are looking for a customer success leader to help clients get more value from our platform and improve retention.",
+    requirements: [
+      "Prior customer-facing experience in SaaS or fintech.",
+      "Strong communication and problem-solving mindset.",
+      "Experience handling renewals and customer escalations.",
+      "Ability to build trusted relationships with stakeholders."
+    ],
+    responsibilities: [
+      "Lead onboarding and account health reviews.",
+      "Coordinate cross-functional support for key accounts.",
+      "Improve retention and client adoption metrics.",
+      "Identify upsell and expansion opportunities."
+    ]
+  },
+  {
+    id: 8,
+    title: "Project Coordinator",
+    company: "GreenBox",
+    location: "Mogadishu",
+    type: "Contract",
+    salary: "$800 - $1,100",
+    category: "Operations",
+    description: "Coordinate project deliverables, meetings, timelines, and stakeholder communication.",
+    featured: false,
+    posted: "2 days ago",
+    summary: "The Project Coordinator role supports cross-functional teams to keep projects on schedule and stakeholders informed.",
+    requirements: [
+      "Strong organization and communication skills.",
+      "Experience managing timelines and action items.",
+      "Comfort with project documentation and reporting.",
+      "Ability to coordinate across multiple stakeholders."
+    ],
+    responsibilities: [
+      "Track deliverables and project schedules.",
+      "Organize meetings and maintain project documentation.",
+      "Support reporting and stakeholder communication.",
+      "Help remove operational blockers for project teams."
+    ]
+  }
+];
+
+function getInitials(name) {
+  return name
+    .split(" ")
+    .map((word) => word[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
+
+function renderHomeJobs() {
+  const container = document.getElementById("jobList");
+  if (!container) return;
+
+  const featuredJobs = jobs.filter((job) => job.featured).slice(0, 3);
+  container.innerHTML = featuredJobs
+    .map(
+      (job) => `
+        <article class="job-card">
+          <div class="job-top">
+            <div class="company-pill">${getInitials(job.company)}</div>
+            <div class="job-meta">
+              <h3>${job.title}</h3>
+              <span class="company-name">${job.company}</span>
+            </div>
+            ${job.featured ? '<span class="badge">Featured</span>' : ""}
+          </div>
+
+          <p>${job.description}</p>
+
+          <div class="job-tags">
+            <span>${job.location}</span>
+            <span>${job.type}</span>
+            <span>${job.category}</span>
+          </div>
+
+          <div class="job-footer">
+            <span class="salary">${job.salary}</span>
+            <a href="job.html?id=${job.id}" class="apply-btn">View role</a>
+          </div>
+        </article>
+      `
+    )
+    .join("");
+}
+
+function renderBoardJobs() {
+  const container = document.getElementById("jobResults");
+  const resultCount = document.getElementById("resultCount");
+  const keywordInput = document.getElementById("keywordInput");
+  const locationFilter = document.getElementById("locationFilter");
+  const typeFilter = document.getElementById("typeFilter");
+  const filterChips = document.querySelectorAll(".chip");
+
+  if (!container) return;
+
+  let activeChip = "all";
+
+  function getFilteredJobs() {
+    const keyword = (keywordInput?.value || "").trim().toLowerCase();
+    const location = locationFilter?.value || "all";
+    const type = typeFilter?.value || "all";
+
+    return jobs.filter((job) => {
+      const matchesKeyword =
+        !keyword ||
+        job.title.toLowerCase().includes(keyword) ||
+        job.company.toLowerCase().includes(keyword) ||
+        job.category.toLowerCase().includes(keyword);
+
+      const matchesLocation = location === "all" || job.location === location;
+      const matchesType = type === "all" || job.type === type;
+
+      const matchesChip =
+        activeChip === "all" ||
+        (activeChip === "remote" && job.location === "Remote") ||
+        (activeChip === "full-time" && job.type === "Full-time") ||
+        (activeChip === "contract" && job.type === "Contract");
+
+      return matchesKeyword && matchesLocation && matchesType && matchesChip;
+    });
   }
 
-  .search-panel {
-    grid-template-columns: 1fr 1fr;
+  function renderJobs() {
+    const filteredJobs = getFilteredJobs();
+    resultCount.textContent = `${filteredJobs.length} role${filteredJobs.length === 1 ? "" : "s"}`;
+
+    if (!filteredJobs.length) {
+      container.innerHTML = `
+        <div class="job-card" style="grid-column: 1 / -1;">
+          <h3>No jobs match your search.</h3>
+          <p>Try broadening your keyword or choosing another location.</p>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = filteredJobs
+      .map(
+        (job) => `
+          <article class="job-card">
+            <div class="job-top">
+              <div class="company-pill">${getInitials(job.company)}</div>
+              <div class="job-meta">
+                <h3>${job.title}</h3>
+                <span class="company-name">${job.company}</span>
+              </div>
+              ${job.featured ? '<span class="badge">Featured</span>' : ""}
+            </div>
+
+            <p>${job.description}</p>
+
+            <div class="job-tags">
+              <span>${job.location}</span>
+              <span>${job.type}</span>
+              <span>${job.category}</span>
+            </div>
+
+            <div class="job-footer">
+              <span class="salary">${job.salary}</span>
+              <a href="job.html?id=${job.id}" class="apply-btn">View details</a>
+            </div>
+          </article>
+        `
+      )
+      .join("");
   }
 
-  .jobs-header,
-  .footer-wrap,
-  .cta-card {
-    flex-direction: column;
-    align-items: flex-start;
+  if (keywordInput) {
+    keywordInput.addEventListener("input", renderJobs);
   }
+
+  if (locationFilter) {
+    locationFilter.addEventListener("change", renderJobs);
+  }
+
+  if (typeFilter) {
+    typeFilter.addEventListener("change", renderJobs);
+  }
+
+  filterChips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      filterChips.forEach((item) => item.classList.remove("active"));
+      chip.classList.add("active");
+      activeChip = chip.dataset.filter;
+      renderJobs();
+    });
+  });
+
+  renderJobs();
 }
 
-@media (max-width: 760px) {
-  .main-nav,
-  .nav-actions {
-    display: none;
+function renderJobDetail() {
+  const detail = document.getElementById("jobDetail");
+  if (!detail) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const jobId = Number(params.get("id"));
+  const job = jobs.find((item) => item.id === jobId);
+
+  if (!job) {
+    detail.innerHTML = `
+      <div class="empty-state">
+        <h2>Job not found</h2>
+        <p>The role you requested could not be found.</p>
+        <a href="jobs.html" class="primary-btn">Back to jobs</a>
+      </div>
+    `;
+    return;
   }
 
-  .hero-grid,
-  .category-grid,
-  .jobs-grid,
-  .process-grid,
-  .logo-strip,
-  .search-panel,
-  .hero-stats {
-    grid-template-columns: 1fr;
-  }
+  detail.innerHTML = `
+    <div class="detail-header">
+      <div class="detail-company">
+        <div class="company-pill">${getInitials(job.company)}</div>
+        <div>
+          <p class="detail-company-name">${job.company}</p>
+          <h1>${job.title}</h1>
+        </div>
+      </div>
+      <a href="jobs.html" class="secondary-btn">Back to all jobs</a>
+    </div>
 
-  .search-panel {
-    padding: 14px;
-  }
+    <div class="meta-grid">
+      <div class="meta-box">
+        <span>Location</span>
+        <strong>${job.location}</strong>
+      </div>
+      <div class="meta-box">
+        <span>Type</span>
+        <strong>${job.type}</strong>
+      </div>
+      <div class="meta-box">
+        <span>Salary</span>
+        <strong>${job.salary}</strong>
+      </div>
+      <div class="meta-box">
+        <span>Posted</span>
+        <strong>${job.posted}</strong>
+      </div>
+    </div>
 
-  .job-footer {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    <div class="detail-body">
+      <div class="detail-copy">
+        <h3>About this role</h3>
+        <p>${job.summary}</p>
 
-  .cta-card {
-    padding: 24px 20px;
-  }
+        <h3>Responsibilities</h3>
+        <ul>
+          ${job.responsibilities.map((item) => `<li>${item}</li>`).join("")}
+        </ul>
+
+        <h3>Requirements</h3>
+        <ul>
+          ${job.requirements.map((item) => `<li>${item}</li>`).join("")}
+        </ul>
+      </div>
+
+      <aside class="detail-side">
+        <div class="side-card">
+          <h3>Compensation</h3>
+          <span class="salary">${job.salary}</span>
+          <button class="apply-btn" type="button">Apply now</button>
+          <button class="secondary-btn" type="button">Save job</button>
+        </div>
+      </aside>
+    </div>
+  `;
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const page = document.body.dataset.page;
 
+  if (page === "home") {
+    renderHomeJobs();
 
+    const searchForm = document.getElementById("searchForm");
+    if (searchForm) {
+      searchForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        window.location.href = "jobs.html";
+      });
+    }
+  }
 
+  if (page === "jobs") {
+    renderBoardJobs();
+  }
 
+  if (page === "job-detail") {
+    renderJobDetail();
+  }
+});
 
 
 
@@ -885,4 +639,28 @@ button, input, select {
 
 
 
-"},{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"  , 
