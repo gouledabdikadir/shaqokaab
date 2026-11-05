@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shaqokaab | Jobs & Careers</title>
+    <meta
+      name="description"
+      content="shaqokaab is a modern job board and career portal connecting employers with job seekers across Africa and beyond."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="#" class="brand" aria-label="shaqokaab home">
+          <span class="brand-mark">s</span>
+          <span class="brand-text">shaqokaab</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#jobs">Jobs</a>
+          <a href="#companies">Companies</a>
+          <a href="#features">Features</a>
+          <a href="#post-job">Post a job</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="#jobs" class="link-btn">Log in</a>
+          <a href="#post-job" class="primary-btn">Post a Job</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Find great work. Build a better future.</span>
+            <h1>Find jobs that match your growth.</h1>
+            <p>
+              Discover meaningful opportunities in technology, business, design, and operations.
+              shaqokaab helps employers hire better and job seekers move faster.
+            </p>
+
+            <form class="search-panel" id="searchForm">
+              <label class="input-wrap input-wide">
+                <span>Keyword</span>
+                <input id="keywordInput" type="text" placeholder="e.g. product manager, frontend engineer" />
+              </label>
+
+              <label class="input-wrap">
+                <span>Location</span>
+                <select id="locationFilter">
+                  <option value="all">All locations</option>
+                  <option value="Mogadishu">Mogadishu</option>
+                  <option value="Hargeisa">Hargeisa</option>
+                  <option value="Nairobi">Nairobi</option>
+                  <option value="Remote">Remote</option>
+                </select>
+              </label>
+
+              <label class="input-wrap">
+                <span>Job type</span>
+                <select id="typeFilter">
+                  <option value="all">Any</option>
+                  <option value="Full-time">Full-time</option>
+                  <option value="Contract">Contract</option>
+                  <option value="Part-time">Part-time</option>
+                  <option value="Remote">Remote</option>
+                </select>
+              </label>
+
+              <button class="search-btn" type="submit">Search Jobs</button>
+            </form>
+
+            <div class="hero-stats" aria-label="Career stats">
+              <div>
+                <strong>12k+</strong>
+                <span>jobs posted</span>
+              </div>
+              <div>
+                <strong>4.8/5</strong>
+                <span>candidate rating</span>
+              </div>
+              <div>
+                <strong>48h</strong>
+                <span>average response</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-panel" aria-label="Featured employer">
+            <div class="panel-card feature-card">
+              <div class="mini-tag">Featured employer</div>
+              <div class="company-row">
+                <div class="company-badge">A</div>
+                <div>
+                  <h3>Atlas Digital</h3>
+                  <p>Hiring across product, engineering & design</p>
+                </div>
+              </div>
+              <ul>
+                <li>Senior Product Designer</li>
+                <li>Frontend Engineer</li>
+                <li>Growth Marketing Lead</li>
+              </ul>
+              <a href="#jobs" class="text-link">View open roles</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="categories" id="features">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow accent">Popular categories</span>
+            <h2>Choose a path that matches your skills</h2>
+          </div>
+
+          <div class="category-grid">
+            <article class="category-card">
+              <div class="icon">💻</div>
+              <h3>Technology</h3>
+              <p>Product, software, data, and cloud roles.</p>
+            </article>
+            <article class="category-card">
+              <div class="icon">📈</div>
+              <h3>Business</h3>
+              <p>Strategy, operations, sales, and growth.</p>
+            </article>
+            <article class="category-card">
+              <div class="icon">🎨</div>
+              <h3>Design</h3>
+              <p>Creative roles driving product and brand impact.</p>
+            </article>
+            <article class="category-card">
+              <div class="icon">💼</div>
+              <h3>Operations</h3>
+              <p>Support teams enhancing execution and delivery.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="jobs" id="jobs">
+        <div class="container">
+          <div class="jobs-header">
+            <div>
+              <span class="eyebrow accent">Latest openings</span>
+              <h2>Explore featured jobs</h2>
+            </div>
+            <div class="chip-row" id="filterChips" aria-label="Filter jobs">
+              <button class="chip active" data-filter="all">All</button>
+              <button class="chip" data-filter="remote">Remote</button>
+              <button class="chip" data-filter="full-time">Full-time</button>
+              <button class="chip" data-filter="contract">Contract</button>
+            </div>
+          </div>
+
+          <div class="jobs-grid" id="jobList" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="companies" id="companies">
+        <div class="container">
+          <div class="section-heading narrow">
+            <span class="eyebrow accent">Trusted by employers</span>
+            <h2>Built for fast-growing teams and local businesses</h2>
+          </div>
+
+          <div class="logo-strip" aria-label="Partner companies">
+            <span>SomNet</span>
+            <span>HorizonPay</span>
+            <span>GreenBox</span>
+            <span>NovaLabs</span>
+            <span>CityLoop</span>
+            <span>HarborOne</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="process">
+        <div class="container">
+          <div class="section-heading narrow">
+            <span class="eyebrow accent">How it works</span>
+            <h2>Simple steps to your next career move</h2>
+          </div>
+
+          <div class="process-grid">
+            <article class="process-card">
+              <span class="step-number">01</span>
+              <h3>Create your profile</h3>
+              <p>Share your skills, background, and career goals.</p>
+            </article>
+            <article class="process-card">
+              <span class="step-number">02</span>
+              <h3>Discover roles</h3>
+              <p>Browse jobs from quality employers and startups.</p>
+            </article>
+            <article class="process-card">
+              <span class="step-number">03</span>
+              <h3>Apply in minutes</h3>
+              <p>Submit applications faster with employer-ready profiles.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section" id="post-job">
+        <div class="container cta-card">
+          <div>
+            <span class="eyebrow accent">For employers</span>
+            <h2>Hire smarter with shaqokaab.</h2>
+          </div>
+          <a href="#" class="primary-btn large">Post a job</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <div>
+          <a href="#" class="brand footer-brand">
+            <span class="brand-mark">s</span>
+            <span class="brand-text">shaqokaab</span>
+          </a>
+          <p>Connecting talent to opportunity across Africa and beyond.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#jobs">Jobs</a>
+          <a href="#features">Features</a>
+          <a href="#post-job">Employers</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
