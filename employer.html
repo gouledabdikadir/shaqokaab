@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Post and manage job listings on shaqokaab." /><title>Employer dashboard | shaqokaab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="employer">
+  <header class="site-header"><div class="container nav-wrap"><a href="index.html" class="brand"><span class="brand-mark">s</span><span class="brand-text">shaqokaab</span></a><nav class="main-nav"><a href="jobs.html">Browse jobs</a><a href="index.html#companies">Companies</a><a href="employer.html">Employer dashboard</a></nav><div class="nav-actions"><a href="jobs.html" class="link-btn">Find talent</a></div></div></header>
+  <main class="page-shell"><section class="board-hero"><div class="container board-hero-inner"><div><span class="eyebrow accent">Employer workspace</span><h1>Post a role. Meet your next great hire.</h1><p class="lead">Create a listing and manage jobs saved in this browser.</p></div></div></section>
+    <section class="container employer-layout"><form id="jobForm" class="form-panel"><h2>Post a job</h2><p class="form-note">Fields marked * are required. Listings are stored locally in this browser for this prototype.</p>
+      <label class="input-wrap"><span>Job title *</span><input name="title" required maxlength="100" placeholder="e.g. Product Designer" /></label>
+      <label class="input-wrap"><span>Company *</span><input name="company" required maxlength="100" placeholder="Your company" /></label>
+      <div class="form-grid"><label class="input-wrap"><span>Location *</span><input name="location" required maxlength="80" placeholder="e.g. Mogadishu or Remote" /></label><label class="input-wrap"><span>Employment type *</span><select name="type" required><option value="">Choose type</option><option>Full-time</option><option>Part-time</option><option>Contract</option><option>Remote</option></select></label></div>
+      <div class="form-grid"><label class="input-wrap"><span>Salary range</span><input name="salary" maxlength="60" placeholder="e.g. $1,000–$1,500" /></label><label class="input-wrap"><span>Category</span><input name="category" maxlength="60" placeholder="e.g. Technology" /></label></div>
+      <label class="input-wrap"><span>Contact email *</span><input name="email" type="email" required maxlength="160" placeholder="hiring@company.com" /></label>
+      <label class="input-wrap"><span>Role description *</span><textarea name="description" required maxlength="4000" rows="7" placeholder="Describe the role, responsibilities, and what you're looking for..."></textarea></label>
+      <button class="primary-btn form-submit" type="submit">Publish job</button><p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+    </form>
+    <section class="dashboard-panel"><div class="results-header"><div><span class="eyebrow accent">Your workspace</span><h2>Your job listings</h2></div><span id="employerJobCount">0 listings</span></div><div id="employerJobs" class="employer-jobs" aria-live="polite"></div></section></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-wrap"><div><a href="index.html" class="brand footer-brand"><span class="brand-mark">s</span><span class="brand-text">shaqokaab</span></a><p>Connecting talent to opportunity across Africa and beyond.</p></div><div class="footer-links"><a href="jobs.html">Browse jobs</a><a href="index.html">Home</a></div></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>

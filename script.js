@@ -1,666 +1,141 @@
-const jobs = [
-  {
-    id: 1,
-    title: "Senior Product Designer",
-    company: "Atlas Digital",
-    location: "Mogadishu",
-    type: "Full-time",
-    salary: "$1,200 - $1,800",
-    category: "Design",
-    description: "Design intuitive digital experiences for customers and internal teams.",
-    featured: true,
-    posted: "2 days ago",
-    summary: "We are looking for a Senior Product Designer to shape user experiences across web and mobile products.",
-    requirements: [
-      "5+ years of product design experience in digital products.",
-      "Strong UX research and system design skills.",
-      "Proficiency in Figma, prototyping, and design systems.",
-      "Ability to work closely with product and engineering teams."
-    ],
-    responsibilities: [
-      "Lead end-to-end design for key product features.",
-      "Translate user needs into elegant design decisions.",
-      "Create and maintain scalable design systems.",
-      "Partner with engineers, researchers, and product managers."
-    ]
-  },
-  {
-    id: 2,
-    title: "Frontend Engineer",
-    company: "NovaLabs",
-    location: "Remote",
-    type: "Remote",
-    salary: "$1,500 - $2,200",
-    category: "Technology",
-    description: "Build polished web interfaces and improve user experience performance.",
-    featured: true,
-    posted: "1 day ago",
-    summary: "Join our product engineering team to build clean, scalable, and accessible front-end experiences.",
-    requirements: [
-      "Strong JavaScript and TypeScript skills.",
-      "Experience with React, Next.js, and design systems.",
-      "Comfort with performance optimization and testing.",
-      "Excellent communication and collaboration habits."
-    ],
-    responsibilities: [
-      "Deliver responsive user interfaces for customer-facing products.",
-      "Work closely with designers to implement polished experiences.",
-      "Improve product performance and accessibility.",
-      "Mentor junior engineers and contribute to code quality."
-    ]
-  },
-  {
-    id: 3,
-    title: "Operations Manager",
-    company: "CityLoop",
-    location: "Hargeisa",
-    type: "Full-time",
-    salary: "$1,000 - $1,500",
-    category: "Operations",
-    description: "Lead day-to-day logistics, service quality, and stakeholder coordination.",
-    featured: false,
-    posted: "4 days ago",
-    summary: "CityLoop is looking for an operations leader to improve delivery, service quality, and internal process efficiency.",
-    requirements: [
-      "3+ years experience in operations or business administration.",
-      "Strong planning and stakeholder management skills.",
-      "Experience working in fast-moving service environments.",
-      "Ability to manage KPIs and process improvements."
-    ],
-    responsibilities: [
-      "Own day-to-day operational execution across teams.",
-      "Improve service quality and optimize workflows.",
-      "Coordinate cross-functional priorities and reporting.",
-      "Support growth planning and operational planning."
-    ]
-  },
-  {
-    id: 4,
-    title: "Business Development Executive",
-    company: "SomNet",
-    location: "Nairobi",
-    type: "Contract",
-    salary: "$900 - $1,300",
-    category: "Business",
-    description: "Drive partnerships, revenue growth, and new client acquisition.",
-    featured: true,
-    posted: "3 days ago",
-    summary: "We are hiring a business development specialist to help expand strategic partnerships and revenue opportunities.",
-    requirements: [
-      "Experience in sales, partnerships, or business development.",
-      "Strong prospecting and negotiation capabilities.",
-      "Comfortable with outbound outreach and presentations.",
-      "Track record of meeting or exceeding revenue goals."
-    ],
-    responsibilities: [
-      "Identify and pursue partnership and sales opportunities.",
-      "Manage lead generation and pipeline development.",
-      "Present solutions to potential customers and partners.",
-      "Collaborate with leadership on market expansion efforts."
-    ]
-  },
-  {
-    id: 5,
-    title: "Data Analyst",
-    company: "GreenBox",
-    location: "Remote",
-    type: "Full-time",
-    salary: "$1,100 - $1,600",
-    category: "Technology",
-    description: "Turn complex customer and operational data into actionable insights.",
-    featured: false,
-    posted: "6 days ago",
-    summary: "As a Data Analyst, you will work across product, finance, and operations to uncover insights and improve decision-making.",
-    requirements: [
-      "Experience with SQL and spreadsheet analysis.",
-      "Comfort with data visualization and dashboarding.",
-      "Strong analytical and storytelling skills.",
-      "Ability to translate metrics into business action."
-    ],
-    responsibilities: [
-      "Create dashboards and recurring performance reports.",
-      "Analyze customer and operational trends.",
-      "Collaborate with cross-functional stakeholders.",
-      "Recommend improvements based on KPI analysis."
-    ]
-  },
-  {
-    id: 6,
-    title: "Marketing Strategist",
-    company: "HarborOne",
-    location: "Mogadishu",
-    type: "Full-time",
-    salary: "$950 - $1,400",
-    category: "Marketing",
-    description: "Craft growth campaigns across digital channels and local outreach.",
-    featured: false,
-    posted: "1 week ago",
-    summary: "HarborOne is hiring a strategic marketer to lead campaigns and brand growth in key local markets.",
-    requirements: [
-      "Experience in digital marketing or brand strategy.",
-      "Strong knowledge of campaign planning and analytics.",
-      "Excellent writing and content strategy capabilities.",
-      "Ability to work across social, search, and CRM campaigns."
-    ],
-    responsibilities: [
-      "Manage growth marketing campaigns across channels.",
-      "Create messaging for product, brand, and acquisition.",
-      "Analyze campaign performance and optimize spend.",
-      "Coordinate local market and digital marketing initiatives."
-    ]
-  },
-  {
-    id: 7,
-    title: "Customer Success Lead",
-    company: "HorizonPay",
-    location: "Remote",
-    type: "Full-time",
-    salary: "$1,050 - $1,550",
-    category: "Customer Success",
-    description: "Guide clients through onboarding, adoption, and retention workstreams.",
-    featured: true,
-    posted: "5 days ago",
-    summary: "We are looking for a customer success leader to help clients get more value from our platform and improve retention.",
-    requirements: [
-      "Prior customer-facing experience in SaaS or fintech.",
-      "Strong communication and problem-solving mindset.",
-      "Experience handling renewals and customer escalations.",
-      "Ability to build trusted relationships with stakeholders."
-    ],
-    responsibilities: [
-      "Lead onboarding and account health reviews.",
-      "Coordinate cross-functional support for key accounts.",
-      "Improve retention and client adoption metrics.",
-      "Identify upsell and expansion opportunities."
-    ]
-  },
-  {
-    id: 8,
-    title: "Project Coordinator",
-    company: "GreenBox",
-    location: "Mogadishu",
-    type: "Contract",
-    salary: "$800 - $1,100",
-    category: "Operations",
-    description: "Coordinate project deliverables, meetings, timelines, and stakeholder communication.",
-    featured: false,
-    posted: "2 days ago",
-    summary: "The Project Coordinator role supports cross-functional teams to keep projects on schedule and stakeholders informed.",
-    requirements: [
-      "Strong organization and communication skills.",
-      "Experience managing timelines and action items.",
-      "Comfort with project documentation and reporting.",
-      "Ability to coordinate across multiple stakeholders."
-    ],
-    responsibilities: [
-      "Track deliverables and project schedules.",
-      "Organize meetings and maintain project documentation.",
-      "Support reporting and stakeholder communication.",
-      "Help remove operational blockers for project teams."
-    ]
-  }
+const STORAGE_KEY = "shaqokaab.employerJobs.v1";
+const seedJobs = [
+  { id: "seed-1", title: "Senior Product Designer", company: "Atlas Digital", location: "Mogadishu", type: "Full-time", salary: "$1,200 - $1,800", category: "Design", description: "Design intuitive digital experiences for customers and internal teams.", featured: true, email: "careers@atlas.example" },
+  { id: "seed-2", title: "Frontend Engineer", company: "NovaLabs", location: "Remote", type: "Remote", salary: "$1,500 - $2,200", category: "Technology", description: "Build polished web interfaces and improve user experience performance.", featured: true, email: "jobs@novalabs.example" },
+  { id: "seed-3", title: "Operations Manager", company: "CityLoop", location: "Hargeisa", type: "Full-time", salary: "$1,000 - $1,500", category: "Operations", description: "Lead day-to-day logistics, service quality, and stakeholder coordination.", featured: false, email: "hiring@cityloop.example" },
+  { id: "seed-4", title: "Business Development Executive", company: "SomNet", location: "Nairobi", type: "Contract", salary: "$900 - $1,300", category: "Business", description: "Drive partnerships, revenue growth, and new client acquisition.", featured: true, email: "talent@somnet.example" },
+  { id: "seed-5", title: "Data Analyst", company: "GreenBox", location: "Remote", type: "Full-time", salary: "$1,100 - $1,600", category: "Technology", description: "Turn complex customer and operational data into actionable insights.", featured: false, email: "jobs@greenbox.example" },
+  { id: "seed-6", title: "Marketing Strategist", company: "HarborOne", location: "Mogadishu", type: "Full-time", salary: "$950 - $1,400", category: "Marketing", description: "Craft growth campaigns across digital channels and local outreach.", featured: false, email: "careers@harborone.example" }
 ];
 
-function getInitials(name) {
-  return name
-    .split(" ")
-    .map((word) => word[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 }
-
+function getEmployerJobs() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    return Array.isArray(parsed) ? parsed.filter((job) => job && typeof job === "object") : [];
+  } catch {
+    return [];
+  }
+}
+function getAllJobs() { return [...getEmployerJobs(), ...seedJobs]; }
+function initials(name) { return String(name || "?").trim().split(/\s+/).map((part) => part[0] || "").join("").slice(0, 2).toUpperCase(); }
+function jobCard(job) {
+  return `<article class="job-card"><div class="job-top"><div class="company-pill">${escapeHTML(initials(job.company))}</div><div class="job-meta"><h3>${escapeHTML(job.title)}</h3><span class="company-name">${escapeHTML(job.company)}</span></div>${job.featured ? '<span class="badge">Featured</span>' : ""}</div><p>${escapeHTML(job.description)}</p><div class="job-tags"><span>${escapeHTML(job.location)}</span><span>${escapeHTML(job.type)}</span><span>${escapeHTML(job.category || "General")}</span></div><div class="job-footer"><span class="salary">${escapeHTML(job.salary || "Salary not listed")}</span><a class="apply-btn" href="job.html?id=${encodeURIComponent(job.id)}">View details</a></div></article>`;
+}
 function renderHomeJobs() {
-  const container = document.getElementById("jobList");
-  if (!container) return;
-
-  const featuredJobs = jobs.filter((job) => job.featured).slice(0, 3);
-  container.innerHTML = featuredJobs
-    .map(
-      (job) => `
-        <article class="job-card">
-          <div class="job-top">
-            <div class="company-pill">${getInitials(job.company)}</div>
-            <div class="job-meta">
-              <h3>${job.title}</h3>
-              <span class="company-name">${job.company}</span>
-            </div>
-            ${job.featured ? '<span class="badge">Featured</span>' : ""}
-          </div>
-
-          <p>${job.description}</p>
-
-          <div class="job-tags">
-            <span>${job.location}</span>
-            <span>${job.type}</span>
-            <span>${job.category}</span>
-          </div>
-
-          <div class="job-footer">
-            <span class="salary">${job.salary}</span>
-            <a href="job.html?id=${job.id}" class="apply-btn">View role</a>
-          </div>
-        </article>
-      `
-    )
-    .join("");
+  const target = document.getElementById("jobList");
+  if (target) target.innerHTML = getAllJobs().slice(0, 3).map(jobCard).join("");
 }
-
 function renderBoardJobs() {
-  const container = document.getElementById("jobResults");
-  const resultCount = document.getElementById("resultCount");
-  const keywordInput = document.getElementById("keywordInput");
-  const locationFilter = document.getElementById("locationFilter");
-  const typeFilter = document.getElementById("typeFilter");
-  const filterChips = document.querySelectorAll(".chip");
-
-  if (!container) return;
-
-  let activeChip = "all";
-
-  function getFilteredJobs() {
-    const keyword = (keywordInput?.value || "").trim().toLowerCase();
-    const location = locationFilter?.value || "all";
-    const type = typeFilter?.value || "all";
-
-    return jobs.filter((job) => {
-      const matchesKeyword =
-        !keyword ||
-        job.title.toLowerCase().includes(keyword) ||
-        job.company.toLowerCase().includes(keyword) ||
-        job.category.toLowerCase().includes(keyword);
-
-      const matchesLocation = location === "all" || job.location === location;
-      const matchesType = type === "all" || job.type === type;
-
-      const matchesChip =
-        activeChip === "all" ||
-        (activeChip === "remote" && job.location === "Remote") ||
-        (activeChip === "full-time" && job.type === "Full-time") ||
-        (activeChip === "contract" && job.type === "Contract");
-
-      return matchesKeyword && matchesLocation && matchesType && matchesChip;
+  const target = document.getElementById("jobResults");
+  if (!target) return;
+  const keyword = document.getElementById("keywordInput");
+  const location = document.getElementById("locationFilter");
+  const type = document.getElementById("typeFilter");
+  const count = document.getElementById("resultCount");
+  let chipFilter = "all";
+  const render = () => {
+    const needle = (keyword?.value || "").trim().toLowerCase();
+    const filtered = getAllJobs().filter((job) => {
+      const text = `${job.title} ${job.company} ${job.category || ""} ${job.description}`.toLowerCase();
+      const loc = location?.value || "all";
+      const selectedType = type?.value || "all";
+      return (!needle || text.includes(needle)) && (loc === "all" || job.location.toLowerCase() === loc.toLowerCase()) && (selectedType === "all" || job.type === selectedType) && (chipFilter === "all" || (chipFilter === "remote" && job.location === "Remote") || (chipFilter === "full-time" && job.type === "Full-time") || (chipFilter === "contract" && job.type === "Contract"));
     });
-  }
-
-  function renderJobs() {
-    const filteredJobs = getFilteredJobs();
-    resultCount.textContent = `${filteredJobs.length} role${filteredJobs.length === 1 ? "" : "s"}`;
-
-    if (!filteredJobs.length) {
-      container.innerHTML = `
-        <div class="job-card" style="grid-column: 1 / -1;">
-          <h3>No jobs match your search.</h3>
-          <p>Try broadening your keyword or choosing another location.</p>
-        </div>
-      `;
-      return;
-    }
-
-    container.innerHTML = filteredJobs
-      .map(
-        (job) => `
-          <article class="job-card">
-            <div class="job-top">
-              <div class="company-pill">${getInitials(job.company)}</div>
-              <div class="job-meta">
-                <h3>${job.title}</h3>
-                <span class="company-name">${job.company}</span>
-              </div>
-              ${job.featured ? '<span class="badge">Featured</span>' : ""}
-            </div>
-
-            <p>${job.description}</p>
-
-            <div class="job-tags">
-              <span>${job.location}</span>
-              <span>${job.type}</span>
-              <span>${job.category}</span>
-            </div>
-
-            <div class="job-footer">
-              <span class="salary">${job.salary}</span>
-              <a href="job.html?id=${job.id}" class="apply-btn">View details</a>
-            </div>
-          </article>
-        `
-      )
-      .join("");
-  }
-
-  if (keywordInput) {
-    keywordInput.addEventListener("input", renderJobs);
-  }
-
-  if (locationFilter) {
-    locationFilter.addEventListener("change", renderJobs);
-  }
-
-  if (typeFilter) {
-    typeFilter.addEventListener("change", renderJobs);
-  }
-
-  filterChips.forEach((chip) => {
-    chip.addEventListener("click", () => {
-      filterChips.forEach((item) => item.classList.remove("active"));
-      chip.classList.add("active");
-      activeChip = chip.dataset.filter;
-      renderJobs();
-    });
-  });
-
-  renderJobs();
+    if (count) count.textContent = `${filtered.length} role${filtered.length === 1 ? "" : "s"}`;
+    target.innerHTML = filtered.length ? filtered.map(jobCard).join("") : '<div class="empty-state"><h3>No matching jobs</h3><p>Try changing your keyword or filters.</p></div>';
+  };
+  [keyword, location, type].forEach((input) => input?.addEventListener(input === keyword ? "input" : "change", render));
+  document.querySelectorAll(".chip").forEach((button) => button.addEventListener("click", () => {
+    document.querySelectorAll(".chip").forEach((chip) => chip.classList.remove("active"));
+    button.classList.add("active"); chipFilter = button.dataset.filter || "all"; render();
+  }));
+  render();
 }
-
 function renderJobDetail() {
-  const detail = document.getElementById("jobDetail");
-  if (!detail) return;
-
-  const params = new URLSearchParams(window.location.search);
-  const jobId = Number(params.get("id"));
-  const job = jobs.find((item) => item.id === jobId);
-
-  if (!job) {
-    detail.innerHTML = `
-      <div class="empty-state">
-        <h2>Job not found</h2>
-        <p>The role you requested could not be found.</p>
-        <a href="jobs.html" class="primary-btn">Back to jobs</a>
-      </div>
-    `;
-    return;
-  }
-
-  detail.innerHTML = `
-    <div class="detail-header">
-      <div class="detail-company">
-        <div class="company-pill">${getInitials(job.company)}</div>
-        <div>
-          <p class="detail-company-name">${job.company}</p>
-          <h1>${job.title}</h1>
-        </div>
-      </div>
-      <a href="jobs.html" class="secondary-btn">Back to all jobs</a>
-    </div>
-
-    <div class="meta-grid">
-      <div class="meta-box">
-        <span>Location</span>
-        <strong>${job.location}</strong>
-      </div>
-      <div class="meta-box">
-        <span>Type</span>
-        <strong>${job.type}</strong>
-      </div>
-      <div class="meta-box">
-        <span>Salary</span>
-        <strong>${job.salary}</strong>
-      </div>
-      <div class="meta-box">
-        <span>Posted</span>
-        <strong>${job.posted}</strong>
-      </div>
-    </div>
-
-    <div class="detail-body">
-      <div class="detail-copy">
-        <h3>About this role</h3>
-        <p>${job.summary}</p>
-
-        <h3>Responsibilities</h3>
-        <ul>
-          ${job.responsibilities.map((item) => `<li>${item}</li>`).join("")}
-        </ul>
-
-        <h3>Requirements</h3>
-        <ul>
-          ${job.requirements.map((item) => `<li>${item}</li>`).join("")}
-        </ul>
-      </div>
-
-      <aside class="detail-side">
-        <div class="side-card">
-          <h3>Compensation</h3>
-          <span class="salary">${job.salary}</span>
-          <button class="apply-btn" type="button">Apply now</button>
-          <button class="secondary-btn" type="button">Save job</button>
-        </div>
-      </aside>
-    </div>
-  `;
+  const target = document.getElementById("jobDetail");
+  if (!target) return;
+  const id = new URLSearchParams(location.search).get("id");
+  const job = getAllJobs().find((item) => String(item.id) === id);
+  if (!job) { target.innerHTML = '<div class="empty-state"><h2>Job not found</h2><p>This listing may have expired or been removed.</p><a class="primary-btn" href="jobs.html">Browse jobs</a></div>'; return; }
+  target.innerHTML = `<div class="detail-header"><div class="detail-company"><div class="company-pill">${escapeHTML(initials(job.company))}</div><div><p class="detail-company-name">${escapeHTML(job.company)}</p><h1>${escapeHTML(job.title)}</h1></div></div><a href="jobs.html" class="secondary-btn">← All jobs</a></div><div class="meta-grid"><div class="meta-box"><span>Location</span><strong>${escapeHTML(job.location)}</strong></div><div class="meta-box"><span>Type</span><strong>${escapeHTML(job.type)}</strong></div><div class="meta-box"><span>Salary</span><strong>${escapeHTML(job.salary || "Not listed")}</strong></div><div class="meta-box"><span>Category</span><strong>${escapeHTML(job.category || "General")}</strong></div></div><div class="detail-body"><div class="detail-copy"><h3>About this role</h3><p>${escapeHTML(job.description)}</p><h3>Next steps</h3><p>Contact the employer directly to ask questions and submit your application.</p></div><aside class="detail-side"><div class="side-card"><h3>Interested?</h3><span class="salary">${escapeHTML(job.salary || "Salary not listed")}</span><a class="apply-btn apply-link" href="mailto:${encodeURIComponent(job.email || "")}?subject=${encodeURIComponent(`Application: ${job.title}`)}">Apply by email</a><button class="secondary-btn save-job" type="button" data-id="${escapeHTML(job.id)}">Save job</button></div></aside></div>`;
+  target.querySelector(".save-job")?.addEventListener("click", (event) => {
+    const button = event.currentTarget;
+    let saved = [];
+    try { saved = JSON.parse(localStorage.getItem("shaqokaab.savedJobs.v1") || "[]"); } catch { saved = []; }
+    const key = String(job.id);
+    if (!saved.includes(key)) saved.push(key);
+    localStorage.setItem("shaqokaab.savedJobs.v1", JSON.stringify(saved));
+    button.textContent = "Saved"; button.disabled = true;
+  });
 }
-
+function renderEmployerDashboard() {
+  const list = document.getElementById("employerJobs");
+  const count = document.getElementById("employerJobCount");
+  const form = document.getElementById("jobForm");
+  if (!list || !form) return;
+  const render = () => {
+    const jobs = getEmployerJobs();
+    if (count) count.textContent = `${jobs.length} listing${jobs.length === 1 ? "" : "s"}`;
+    list.innerHTML = jobs.length ? jobs.map((job) => `<article class="employer-job"><div><h3>${escapeHTML(job.title)}</h3><p>${escapeHTML(job.company)} · ${escapeHTML(job.location)} · ${escapeHTML(job.type)}</p></div><button class="delete-job" type="button" data-id="${escapeHTML(job.id)}" aria-label="Delete ${escapeHTML(job.title)}">Delete</button></article>`).join("") : '<div class="empty-state"><h3>No listings yet</h3><p>Publish your first role using the form.</p></div>';
+  };
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const job = {
+      id: `employer-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+      title: String(data.get("title") || "").trim(), company: String(data.get("company") || "").trim(),
+      location: String(data.get("location") || "").trim(), type: String(data.get("type") || "").trim(),
+      salary: String(data.get("salary") || "").trim(), category: String(data.get("category") || "General").trim(),
+      email: String(data.get("email") || "").trim(), description: String(data.get("description") || "").trim(), featured: false
+    };
+    if (!job.title || !job.company || !job.location || !job.type || !job.email || !job.description) return;
+    const jobs = getEmployerJobs(); jobs.unshift(job);
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(jobs));
+      form.reset();
+      const message = document.getElementById("formMessage");
+      if (message) message.textContent = "Your job is published on this browser and now appears in the job board.";
+      render();
+    } catch {
+      const message = document.getElementById("formMessage");
+      if (message) message.textContent = "Could not save this listing. Your browser storage may be full or disabled.";
+    }
+  });
+  list.addEventListener("click", (event) => {
+    const button = event.target.closest(".delete-job");
+    if (!button) return;
+    const id = button.dataset.id;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(getEmployerJobs().filter((job) => String(job.id) !== id)));
+    render();
+  });
+  render();
+}
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page;
-
   if (page === "home") {
     renderHomeJobs();
-
-    const searchForm = document.getElementById("searchForm");
-    if (searchForm) {
-      searchForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        window.location.href = "jobs.html";
-      });
-    }
+    document.getElementById("searchForm")?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const params = new URLSearchParams();
+      const keyword = document.getElementById("keywordInput")?.value.trim();
+      const location = document.getElementById("locationFilter")?.value;
+      const type = document.getElementById("typeFilter")?.value;
+      if (keyword) params.set("q", keyword);
+      if (location && location !== "all") params.set("location", location);
+      if (type && type !== "all") params.set("type", type);
+      window.location.href = `jobs.html${params.size ? `?${params}` : ""}`;
+    });
   }
-
   if (page === "jobs") {
+    const params = new URLSearchParams(location.search);
+    if (params.has("q")) document.getElementById("keywordInput").value = params.get("q");
+    if (params.has("location")) document.getElementById("locationFilter").value = params.get("location");
+    if (params.has("type")) document.getElementById("typeFilter").value = params.get("type");
     renderBoardJobs();
   }
-
-  if (page === "job-detail") {
-    renderJobDetail();
-  }
+  if (page === "job-detail") renderJobDetail();
+  if (page === "employer") renderEmployerDashboard();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"  , 
