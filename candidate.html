@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Manage your shaqokaab job seeker profile, saved jobs, and application tracker." />
+  <title>My career dashboard | shaqokaab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .candidate-layout{display:grid;grid-template-columns:minmax(260px,.75fr) minmax(0,1.5fr);gap:24px;align-items:start}
+    .candidate-panel{padding:24px;background:#fff;border:1px solid #e4eaf5;border-radius:22px;box-shadow:0 14px 30px rgba(17,33,61,.045)}
+    .candidate-panel h2{margin:0 0 8px;color:#0a1428}.candidate-panel>p{color:#5d6b82}
+    .candidate-form{display:grid;gap:14px;margin-top:18px}.candidate-form label{display:grid;gap:6px;color:#5d6b82;font-size:.85rem;font-weight:600}.candidate-form input{min-height:48px;padding:11px 13px;border:1px solid #e4eaf5;border-radius:11px;font:inherit;color:#11213d}
+    .candidate-columns{display:grid;gap:20px}.candidate-section-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.candidate-section-heading h2{margin:0}.candidate-list{display:grid;gap:12px}.candidate-item{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px;border:1px solid #e4eaf5;border-radius:15px}.candidate-item h3{margin:0;color:#0a1428;font-size:1rem}.candidate-item p{margin:4px 0 0;color:#5d6b82;font-size:.88rem}.candidate-item-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.candidate-status{padding:5px 9px;border-radius:99px;background:#eaf8f1;color:#087d58;font-size:.75rem;font-weight:700}.candidate-empty{padding:20px;text-align:center;border:1px dashed #cbd6e5;border-radius:15px;color:#5d6b82}.candidate-note{color:#5d6b82;font-size:.85rem}.candidate-remove{border:1px solid #e4eaf5;background:#fff;color:#1c2d48;border-radius:9px;padding:8px 10px;font-weight:700;cursor:pointer}
+    @media(max-width:760px){.candidate-layout{grid-template-columns:1fr}.candidate-item{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body data-page="candidate">
+  <header class="site-header"><div class="container nav-wrap">
+    <a href="index.html" class="brand"><span class="brand-mark">s</span><span class="brand-text">shaqokaab</span></a>
+    <nav class="main-nav"><a href="jobs.html">Jobs</a><a href="candidate.html">My dashboard</a><a href="employer.html">For employers</a></nav>
+    <div class="nav-actions"><a href="jobs.html" class="link-btn">Find a job</a></div>
+  </div></header>
+  <main class="page-shell">
+    <section class="board-hero"><div class="container board-hero-inner"><div><span class="eyebrow accent">Candidate workspace</span><h1>Your career, in one place.</h1><p class="lead">Manage your profile, keep interesting roles close, and review applications you started.</p></div></div></section>
+    <section class="container candidate-layout">
+      <section class="candidate-panel"><h2>Your profile</h2><p class="candidate-note">This demo saves your profile only in this browser. It is not an account or secure sign-in.</p>
+        <form class="candidate-form" id="candidateProfileForm">
+          <label>Full name<input name="name" autocomplete="name" required maxlength="100" placeholder="Your name" /></label>
+          <label>Email address<input name="email" type="email" autocomplete="email" required maxlength="160" placeholder="you@example.com" /></label>
+          <button class="primary-btn" type="submit">Save profile</button>
+          <p id="candidateMessage" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+      <div class="candidate-columns">
+        <section class="candidate-panel"><div class="candidate-section-heading"><h2>Saved jobs</h2><span id="savedCount" class="candidate-note">0 jobs</span></div><div id="savedJobs" class="candidate-list" aria-live="polite"></div></section>
+        <section class="candidate-panel"><div class="candidate-section-heading"><h2>Applications</h2><span id="applicationCount" class="candidate-note">0 applications</span></div><p class="candidate-note">Applications are marked when you choose “Apply by email” on a job. Submission happens in your email app.</p><div id="candidateApplications" class="candidate-list" aria-live="polite"></div></section>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-wrap"><div><a href="index.html" class="brand footer-brand"><span class="brand-mark">s</span><span class="brand-text">shaqokaab</span></a><p>Connecting talent to opportunity across Africa and beyond.</p></div><div class="footer-links"><a href="jobs.html">Jobs</a><a href="employer.html">For employers</a></div></div></footer>
+  <script src="script.js"></script>
+  <script src="candidate.js"></script>
+</body>
+</html>
